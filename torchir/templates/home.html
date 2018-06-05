@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>This is a title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+
+    <div id="container">
+        <h2>Upload image</h2>
+        <form action="/result" method=post enctype=multipart/form-data id="form">
+            <p>
+                <input type=file id="file" name=image>
+            </p>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById("file").onchange = function () {
+            document.getElementById("form").submit();
+            document.getElementById("container").innerHTML = "<h2>Receiving image!</h2>";
+        };
+    </script>
+
+</body>
+</html>

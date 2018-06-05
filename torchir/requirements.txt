@@ -1,0 +1,6 @@
+Flask>=0.12
+pem>=17.1
+Pillow>=4.3
+torch==0.3.0
+torchvision==0.2.0
+Twisted>=17.9
