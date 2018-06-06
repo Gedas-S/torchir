@@ -10,6 +10,7 @@ import torchvision.datasets as datasets
 from torchvision.models import resnet152
 
 TRAIN_TRANSFORM = transforms.Compose([
+    transforms.Resize(240),
     transforms.RandomResizedCrop(224),
 ])
 
@@ -53,16 +54,17 @@ def train_network():
     optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9)  # stochastic gradient descent
 
     # train
-    for _ in range(3):
-        for data in trainloader:
-            inputs, labels = data
-            inputs, labels = Variable(inputs.cuda()), Variable(labels.cuda())
-            optimizer.zero_grad()
+    for _ in range(4):
+        for _ in range(2):
+            for data in trainloader:
+                inputs, labels = data
+                inputs, labels = Variable(inputs.cuda()), Variable(labels.cuda())
+                optimizer.zero_grad()
 
-            outputs = net(inputs)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
 
         lr *= 0.2
         for param_group in optimizer.param_groups:
