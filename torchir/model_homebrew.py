@@ -1,4 +1,5 @@
 import os
+import time
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import torch
@@ -56,6 +57,7 @@ class Net(nn.Module):
 
 def train_network():
     """Train the network using CIFAR10 data"""
+    start_time = time.clock()
     # load the data
     trainset = datasets.CIFAR10(root='./data', train=True, download=True,
                                 transform=PREPROCESSING_TRANSFORM)
@@ -87,6 +89,7 @@ def train_network():
             os.makedirs(os.path.dirname(path))
         torch.save(net, path)
 
+    print('model trained in %sms' % (time.clock() - start_time))
     return net
 
 

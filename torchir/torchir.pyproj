@@ -24,6 +24,7 @@
   <ItemGroup>
     <Compile Include="flask_server.py" />
     <Compile Include="model_homebrew.py" />
+    <Compile Include="model_transfer.py" />
     <Compile Include="model_resnet.py">
       <SubType>Code</SubType>
     </Compile>

@@ -3,7 +3,7 @@ from io import BytesIO
 from flask import Flask, render_template, request
 from PIL import Image
 from model_resnet import predict_category
-from model_homebrew import (
+from model_transfer import (
     get_network,
     CLASSES, 
     PREPROCESSING_TRANSFORM, 
