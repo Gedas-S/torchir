@@ -2,8 +2,13 @@ from base64 import standard_b64encode
 from io import BytesIO
 from flask import Flask, render_template, request
 from PIL import Image
-from model_resnet import (get_network, predict_category,
-                          CLASSES, PREPROCESSING_TRANSFORM, SIZE_TRANSFORM)
+from model_resnet import predict_category
+from model_homebrew import (
+    get_network,
+    CLASSES, 
+    PREPROCESSING_TRANSFORM, 
+    SIZE_TRANSFORM
+)
 
 app = Flask(__name__)
 
